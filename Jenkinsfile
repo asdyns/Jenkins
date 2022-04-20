@@ -24,5 +24,20 @@ pipeline {
         echo "Job: ${env.JOB_NAME}, Build: ${env.BUILD_NUMBER}"
       }
     }
+    stage('parallel') {
+      steps {
+        parallel (
+          a: {
+            echo "aaaaa"
+          },
+          b: {
+            echo "bbbbb"
+          },
+          c: {
+            echo "ccccc"
+          }
+        )
+      }
+    }
   }
 }
