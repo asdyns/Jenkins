@@ -19,5 +19,10 @@ pipeline {
         archiveArtifacts artifacts: 'HelloWorld.class', followSymlinks: false
       }
     }
+    stage('post') {
+      steps {
+        echo "Job: ${env.JOB_NAME}, Build: ${env.BUILD_NUMBER}"
+      }
+    }
   }
 }
